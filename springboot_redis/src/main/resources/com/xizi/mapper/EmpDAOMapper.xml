@@ -1,0 +1,19 @@
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xizi.dao.EmpDao">
+
+
+    <!--开启mybatis二级缓存-->
+    <!--<cache  type="com.xizi.cache.RedisCache"/>-->
+
+
+    <!--如果项目中的表多表关联 一定要使用关联关系缓存-->
+    <!--关联关系缓存处理-->
+    <cache-ref namespace="com.xizi.dao.UserDao"/>
+
+    <!--findAll-->
+    <select id="findAll" resultType="Emp">
+        select id,name from emp
+    </select>
+
+
+</mapper>

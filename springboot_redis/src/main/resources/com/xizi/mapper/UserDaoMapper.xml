@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xizi.dao.UserDao">
+
+    <!--开启mybatis二级缓存-->
+    <!--实体类必须序列化-->
+    <!-- 默认 PerpetualCache-->
+    <!--<cache/>-->
+    <!--<cache type="org.apache.ibatis.cache.impl.PerpetualCache"/>-->
+
+    <cache type="com.xizi.cache.RedisCache"/>
+
+    <select id="findAll" resultType="User">
+        select * from user;
+    </select>
+
+    <select id="findById" resultType="User" parameterType="String">
+        select * from user where id=#{id};
+    </select>
+
+    <!--delete-->
+    <delete id="delete" parameterType="String">
+        delete from user where id= #{id}
+    </delete>
+
+    <!--save-->
+    <insert id="save" parameterType="User">
+        insert into user values(#{id},#{name},#{age},#{bir})
+    </insert>
+
+    <!--update-->
+    <update id="update" parameterType="User">
+        update user
+        set
+
+        <if test="name!=null">
+            name=#{name},
+        </if>
+        <if test="age!=null ">
+            age=#{age},
+        </if>
+        <if test="bir!=null  ">
+            bir=#{bir}
+        </if>
+        where id=#{id}
+
+
+    </update>
+
+</mapper>

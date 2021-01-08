@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <option name="USE_RELEASE_OPTION" value="false" />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="redis-01-jedis" />
+        <module name="redis-1" />
+        <module name="redis_session_manager" />
+        <module name="springboot_redis" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="redis-01-jedis" target="1.5" />
+      <module name="redis-1" target="1.7" />
+      <module name="redis_session_manage" target="1.5" />
+      <module name="redis_session_manager" target="1.8" />
+      <module name="springboot_redis" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
